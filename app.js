@@ -25,6 +25,13 @@ const game = document.querySelector('#game'),
 minNum.textContent = min;
 maxNum.textContent = max;
 
+// Play Again Event Listener
+game.addEventListener('mousedown', function(e) {      // we didn't used 'click' as our event coz when there comes the chance to press 'Play Again it won't let click and automatically reload the page
+    if(e.target.className === 'play-again') {        // we did this because the event listener is covering the whole div with an id - #game
+        window.location.reload();
+    }
+});
+
 // Listen for guess
 guessBtn.addEventListener('click', function() {
     // console.log(guessInput.value);       // it will give the number entered in the guess field after pressing submit
@@ -80,6 +87,10 @@ function gameOver(won, msg) {
 
     // Set Message
     setMessage(msg, color);
+
+    // Play Again
+    guessBtn.value = 'Play Again';
+    guessBtn.className += 'play-again';       // "+=" will append the class to the element
 }
 
 // Set Message
