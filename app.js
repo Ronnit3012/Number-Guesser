@@ -10,7 +10,7 @@ GAME FUNCTION:
 // Game values
 let min = 1,
     max = 10,     // this is another convention to initialize multiple variables of the same type
-    winningNum = 2,
+    winningNum = getRandomNum(min, max),
     guessesLeft = 3;
 
 // UI Elements
@@ -91,6 +91,11 @@ function gameOver(won, msg) {
     // Play Again
     guessBtn.value = 'Play Again';
     guessBtn.className += 'play-again';       // "+=" will append the class to the element
+}
+
+// Get Winning Number
+function getRandomNum(min, max) {
+    return (Math.ceil(Math.random()*(max-min+1)));       // this will give random number between min and max, that is, 1 and 10.
 }
 
 // Set Message
